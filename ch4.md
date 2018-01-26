@@ -235,8 +235,25 @@ console.log(friend.getGreeting());                      // "Woof, hi!"
 console.log(Object.getPrototypeOf(friend) === dog);     // true
 ```
 
-Object.setProototypeOf()方法能够在创建对象之后改变其原型。
-
+Object.setPrototypeOf()方法能够在创建对象之后改变其原型。
 
 Object.create() 创建一个空对象，并且这个对象的原型指向这个参数。
 ![Object.create](/Object.create.png)
+
+### 继承
+#### 基于原型的继承
+```js
+function Foo() {
+  this.y = 2;
+}
+
+typeof Foo.prototype // 'object'
+
+Foo.prototype.x = 1;
+var obj3 = new Foo();
+
+obj3.y; // 2
+obj3.x; // 1
+```
+
+![new Function Prototype](/newfunction.png)
