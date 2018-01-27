@@ -257,3 +257,63 @@ obj3.x; // 1
 ```
 
 ![new Function Prototype](/newfunction.png)
+
+### instanceof
+
+```js
+A instanceof B
+instanceof一般要求左边是一个对象，右边是一个函数。
+一般会判断右边构造器的prototype属性是否出现左边的原型链上。
+
+B是一个必须是一个函数，用到B的prototype属性
+左边A要求是一个对象
+
+[1, 2] instanceof Array === true
+
+[1, 2]是一个数组字面量，其原型就是 Array.prototype
+
+```
+
+![array](/array.png)
+
+```js
+new Object() instanceof Array === false
+new Object() 空对象的原型是null 自然不包含Array.prototype
+```
+
+```js
+[1, 2] instanceof Object === true
+// [1, 2] 的原型是Array.prototype, 而Array.prototype.__proto__就是Object.prototype
+```
+instanceof是这么判断的：从左边操作数的__proto__路线出发，从右边操作数的prototype出发，如果两条路线最终指向一个引用就是true了
+
+![boson1](/boson1.png)
+![boson2](/boson2.png)
+
+不推荐 原型继承写法
+例如 Student.prototype = Person.prototype
+一般希望Student有自己方法，上述写法，改变student同时也改变了person
+![prototype](/prototype.png)
+Student.prototype = new Person();
+// Person的实例，创建了一个对象，并且这个对象(Person的实例)指向Person.prototype并且调用构造函数，实现了继承
+
+
+
+Student.prototype = Object.create(Person.prototype)
+Object.create() 创建了一个空对象，并且这个对象的原型指向Person.prototype
+这样保证了可以继承Person.prototype上的属性和方法，并且Student.prototype又有自己的空对象
+自己的修改不会影响原型链上。利用原型链写的向上查找特性
+
+但是ES5之后的Object.create() 有兼容性
+if (!Object.create) {
+    Object.create = function(proto) {
+        function F() {}
+        F.prototype = proto;
+        return new F;
+    };
+}
+
+Student.prototype.constructor = Student
+
+
+
