@@ -323,7 +323,7 @@ person.salary; // 50000
 person.promote = 2;
 person.salary; //60000
 ```
-![object_property_tag](/object_property_tag.png)
+![object_property_tag](/images/object_property_tag.png)
 
 ## 对象标签
 [[proto]] [[class]] [[extensible]] 

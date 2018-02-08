@@ -238,7 +238,7 @@ console.log(Object.getPrototypeOf(friend) === dog);     // true
 Object.setPrototypeOf()方法能够在创建对象之后改变其原型。
 
 Object.create() 创建一个空对象，并且这个对象的原型指向这个参数。
-![Object.create](/Object.create.png)
+![Object.create](/images/Object.create.png)
 
 ### 继承
 #### 基于原型的继承
@@ -256,7 +256,7 @@ obj3.y; // 2
 obj3.x; // 1
 ```
 
-![new Function Prototype](/newfunction.png)
+![new Function Prototype](/images/newfunction.png)
 
 ### instanceof
 
@@ -274,7 +274,7 @@ B是一个必须是一个函数，用到B的prototype属性
 
 ```
 
-![array](/array.png)
+![array](/images/array.png)
 
 ```js
 new Object() instanceof Array === false
@@ -287,13 +287,13 @@ new Object() 空对象的原型是null 自然不包含Array.prototype
 ```
 instanceof是这么判断的：从左边操作数的__proto__路线出发，从右边操作数的prototype出发，如果两条路线最终指向一个引用就是true了
 
-![boson1](/boson1.png)
-![boson2](/boson2.png)
+![boson1](/images/boson1.png)
+![boson2](/images/boson2.png)
 
 不推荐 原型继承写法
 例如 Student.prototype = Person.prototype
 一般希望Student有自己方法，上述写法，改变student同时也改变了person
-![prototype](/prototype.png)
+![prototype](/images/prototype.png)
 Student.prototype = new Person();
 // Person的实例，创建了一个对象，并且这个对象(Person的实例)指向Person.prototype并且调用构造函数，实现了继承
 

@@ -483,6 +483,6 @@ VO按照如下顺序填充:
 3. 变量声明
 (初始化变量值为undefined，若发⽣生命名冲突，会忽略。)
 
-![vo](./vo.png)
-![vo执行阶段](./vo1.png)
-![vo](./vo2.png)
+![vo](./images/vo.png)
+![vo执行阶段](./images/vo1.png)
+![vo](./images/vo2.png)
