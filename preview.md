@@ -256,6 +256,7 @@ for (p in obj) {
 1. for...in...遍历顺序不确定
 2. enumerable为false情况下不会出现属性 (enumerable 为true时，该属性才能够出现在对象的枚举属性中，enumerable默认false)
 3. for in 对象属性时，受原型链影响。例如obj 的原型链上的原型有其他属性，并且enumerable为true情况下也会遍历到。
+4. 想要有序遍历出对象obj属性，采用 Object.getOwnPropertyNames(obj) 方法
 
 ### switch <必须break语句断开，否则会继续往下执行>
 
