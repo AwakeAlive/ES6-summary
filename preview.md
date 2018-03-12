@@ -125,9 +125,9 @@ constructor 可以改写，需注意
 
 ## summary1
 
-1 typeof 适合基本类型以及function检测，遇到null失效。可以通过严格等于null === null解决
-2 [[Class]] 通过{}.toString拿到，适合内置对象和基元类型，遇到null 和 undefined失效（IE6，7，8返回[object Object]）
-3 instanceof 适合自定义对象，也可以用来检测原生对象，在不同 iframe 和 window 检测失效
+* typeof 适合基本类型以及function检测，遇到null失效。可以通过严格等于null === null解决
+* [[Class]] 通过{}.toString拿到，适合内置对象和基元类型，遇到null 和 undefined失效（IE6，7，8返回[object Object]）
+* instanceof 适合自定义对象，也可以用来检测原生对象，在不同 iframe 和 window 检测失效
 
 ## 原始表达式
 1. 常量
@@ -151,7 +151,7 @@ hasOwnProperty可以判断属性是否在自身上
 ```js
 function Foo() {}
 Foo.prototype.x = 1;
-var obj = new Foo();
+var obj = new Foo(); // obj.__proto__ === Foo.prototype  => true
 obj.x; // 1
 obj.hasOwnProperty('x'); // false
 obj.__proto__.hasOwnProperty('x'); // true
